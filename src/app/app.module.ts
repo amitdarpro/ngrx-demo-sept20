@@ -7,6 +7,9 @@ import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './store/reducer';
+
 const routes: Routes = [
   {
     path: '',
@@ -41,6 +44,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({cart: reducer}),
     RouterModule.forRoot(routes)
   ],
   providers: [],
