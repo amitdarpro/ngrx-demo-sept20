@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { Product } from '../store/product.model';
+import { Product } from '../store/product.model';
+import * as Cart from '../store/actions';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -10,18 +11,18 @@ import { Observable } from 'rxjs';
 })
 export class CartComponent implements OnInit {
 
-  cart: Array<any>;
-  cartSummary: Array<any> = [];
+  // cart: Array<any>;
+  // cartSummary: Array<any> = [];
 
-  // cart: Observable<Array<any>>;
+  cart: Observable<Array<Product>>;
 
   constructor( private store: Store<any>) {
-    // this.cart = this.store.select('cart');
+    this.cart = this.store.select('cart');
   }
 
   ngOnInit(): void {
     // this.store.select('cart').subscribe(state => this.cart = state);
-
+    /*
     this.store.select('cart').subscribe((state) => {
       this.cart = state;
       if ((this.cart || []).length) {
@@ -36,7 +37,11 @@ export class CartComponent implements OnInit {
         }
       }
     })
+    */
+  }
 
+  remove(product): void {
+    this.store.dispatch(new Cart.RemoveProduct(product));
   }
 
 }

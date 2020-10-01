@@ -1,17 +1,18 @@
 <p>cart works!</p>
-<!-- <div class="" *ngIf="cart">
+<div class="" *ngIf="cart">
     <h4>Products:</h4>
     <ul>
-        <li *ngFor="let item of cart">
-            {{ item.name }}
-        </li>
-    </ul>
-</div> -->
-<div class="" *ngIf="cartSummary">
-    <h4>Products:</h4>
-    <ul>
-        <li *ngFor="let item of cartSummary">
-            {{ item.name }}: {{ item.quantity }}
+        <li *ngFor="let product of cart | async">
+            {{ product.name }}
+            <button class="btn btn-primary" (click)="remove(product)">Remove</button>
         </li>
     </ul>
 </div>
+<!-- <div class="" *ngIf="cartSummary">
+    <h4>Products:</h4>
+    <ul>
+        <li *ngFor="let product of cartSummary">
+            {{ product.name }}: {{ product.quantity }}
+        </li>
+    </ul>
+</div> -->
