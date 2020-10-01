@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// import { Product } from '../store/product.model';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  cart: Array<any>;
+  cartSummary: Array<any> = [];
+
+  // cart: Observable<Array<any>>;
+
+  constructor( private store: Store<any>) {
+    // this.cart = this.store.select('cart');
+  }
 
   ngOnInit(): void {
+    // this.store.select('cart').subscribe(state => this.cart = state);
+
+    this.store.select('cart').subscribe((state) => {
+      this.cart = state;
+      if ((this.cart || []).length) {
+        let index;
+        for (let i=0; i<this.cart.length; i++) {
+          if ((this.cartSummary || []).length) {
+            index = this.cartSummary.findIndex((item) => {
+              return item.id === this.cart[i].id
+            });
+          }
+          index > -1 ? this.cartSummary[index].quantity++ : this.cartSummary.push({...this.cart[i], quantity: 1});
+        }
+      }
+    })
+
   }
 
 }

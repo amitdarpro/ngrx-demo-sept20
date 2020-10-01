@@ -10,12 +10,12 @@ export class AppComponent implements OnInit {
   title = 'NGRX Demo';
   cart: Array<any>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store<any>) {}
 
   ngOnInit() {
-    // this.store.select('cart').subscribe(state => this.cart = state);
+    this.store.select('cart').subscribe(state => this.cart = state);
 
-    console.log("\n\n app.component.ts >> ngOnInit() :: cart=", this.cart);
+    console.log("\n\n*LOG* app.component.ts >> ngOnInit() :: cart=", this.cart);
     
   }
 }

@@ -8,6 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducer } from './store/reducer';
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
     component: CartComponent
   },
   {
-    path: 'product:id',
+    path: 'product/:id',
     component: ProductComponent
   },
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     StoreModule.forRoot({cart: reducer}),
+    StoreDevtoolsModule.instrument({ name: 'NgRx Demo App' }),
     RouterModule.forRoot(routes)
   ],
   providers: [],
