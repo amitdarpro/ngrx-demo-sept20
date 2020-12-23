@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   cart$: Observable<Array<Product>>;
 
   constructor(private store: Store<any>) {
-    this.cart$ = this.store.select('cart');
+    this.cart$ = store.select('cart');
   }
 
   ngOnInit(): void {

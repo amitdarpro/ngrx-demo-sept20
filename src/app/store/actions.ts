@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 
 export enum CartActionTypes {
-    ADD_PRODUCT = 'ADD_PRODUCT',
-    REMOVE_PRODUCT = 'REMOVE_PRODUCT'
+    ADD_PRODUCT = '[Product Page] ADD_PRODUCT',
+    REMOVE_PRODUCT = '[Cart Page] REMOVE_PRODUCT'
 }
 
 export class AddProduct implements Action {
