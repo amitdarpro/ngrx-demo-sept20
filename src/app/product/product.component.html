@@ -1,6 +1,6 @@
-<p>product works!</p>
-<div class="aa" *ngIf="product">
+<h6>Product Page</h6>
+<div *ngIf="product">
     <b>{{ product.name }}</b>: ${{ product.price }}
-    <button (click)="add()">Add</button>
+    <button (click)="add()" class="btn-primary">Add Product</button>
 </div>
 <a routerLink="/cart">go to cart</a>

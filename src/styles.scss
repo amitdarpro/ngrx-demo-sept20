@@ -64,6 +64,10 @@ img {
     width: 100%;
 }
 
+.detail img {
+    cursor: pointer;
+}
+
 .my-list:hover .detail {
     top: 0;
 }

@@ -14,10 +14,10 @@ export class CartComponent implements OnInit {
   // cart: Array<any>;
   // cartSummary: Array<any> = [];
 
-  cart: Observable<Array<Product>>;
+  cart$: Observable<Array<Product>>;
 
-  constructor( private store: Store<any>) {
-    this.cart = this.store.select('cart');
+  constructor(private store: Store<any>) {
+    this.cart$ = this.store.select('cart');
   }
 
   ngOnInit(): void {

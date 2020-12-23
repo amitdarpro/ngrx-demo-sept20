@@ -7,7 +7,7 @@
         <div class="offer">Extra 5% Off. Cart value $ {{0.5 * product.price}}</div>
         <div class="detail">
             <p>{{product.name}} </p>
-            <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
+            <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" (click)="gotoProduct(product)" />
             <a [routerLink]="['/product',product.id]" class="btn btn-info">View</a>
         </div>
     </div>

@@ -1,7 +1,20 @@
-<div class="container">
+<!-- <div class="container">
   <h3>Welcome to {{ title }}</h3>
   <p>Cart Length: {{ cart.length }}</p>
   <router-outlet></router-outlet>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">{{ title }}</h1>
+      <div class="text-center">
+        <a [routerLink]="['/']">Home</a>
+        <span> | </span>
+        <span class="text-center"><a [routerLink]="['/cart']">Cart: {{cart.length}}</a></span>
+      </div>
+      <hr />
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>
-
-

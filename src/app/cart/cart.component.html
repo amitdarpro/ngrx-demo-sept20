@@ -1,13 +1,16 @@
-<p>cart works!</p>
-<div class="" *ngIf="cart">
-    <h4>Products:</h4>
+<div *ngIf="cart$">
+    <h4 *ngIf="(cart$ | async).length > 0; else no_products">Carts'Products:</h4>
+    <ng-template #no_products>
+        <h4>Cart is empty</h4>
+    </ng-template>
     <ul>
-        <li *ngFor="let product of cart | async">
+        <li *ngFor="let product of cart$ | async">
             {{ product.name }}
-            <button class="btn btn-primary" (click)="remove(product)">Remove</button>
+            <button class="btn btn-primary btn-sml" (click)="remove(product)">Remove Product</button>
         </li>
     </ul>
 </div>
+
 <!-- <div class="" *ngIf="cartSummary">
     <h4>Products:</h4>
     <ul>

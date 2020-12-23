@@ -7,7 +7,7 @@ import { Store, select } from '@ngrx/store';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'NGRX Demo';
+  title = 'Online Store';
   cart: Array<any>;
 
   constructor(private store: Store<any>) {}
